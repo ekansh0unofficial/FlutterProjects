@@ -1,0 +1,6 @@
+analyzer:
+  errors:
+    curly_braces_in_flow_control_structures: ignore
+    prefer_const_constructors: ignore
+    use_key_in_widget_constructors: ignore
+include: package:flutter_lints/flutter.yaml
