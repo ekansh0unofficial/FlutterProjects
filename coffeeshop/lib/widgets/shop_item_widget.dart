@@ -1,5 +1,5 @@
 //import 'package:coffeeshop/const.dart';
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:coffeeshop/pages/models/coffee_model.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +8,10 @@ import 'package:flutter/cupertino.dart';
 class ShopItem extends StatelessWidget {
   
   Coffee item ; 
-  void Function()? onPressed;
-  ShopItem({super.key , required this.item , required this.onPressed});
+  void Function()? onAdd;
+  void Function()? onRemove;
+
+  ShopItem({super.key , required this.item , required this.onAdd , required this.onRemove});
 
   @override  
   Widget build(BuildContext context) {
@@ -23,9 +25,13 @@ class ShopItem extends StatelessWidget {
           leading: Image.asset(item.image_string, height: 70 ,),
           title: Text(item.name),
           subtitle: Text(item.price),
-          trailing: IconButton(
-             icon : Icon(Icons.add) ,
-            onPressed: onPressed,
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+                IconButton(onPressed: onRemove, icon: Icon(Icons.remove)),
+                Text("${item.quantity}"),
+                IconButton(onPressed: onAdd, icon: Icon(Icons.add))
+            ],
           ),
         ),
       ),
