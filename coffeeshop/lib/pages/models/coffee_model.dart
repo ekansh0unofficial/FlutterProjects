@@ -1,9 +1,21 @@
 
-class Coffee{
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:flutter/material.dart';
+
+class Coffee {
 
   String name;
   String price;
   String image_string;
+  int quantity ;
 
-  Coffee(this.name,this.price,this.image_string);
+
+  set setQuantity(int q){
+      quantity =q;
+  }
+
+  Coffee({this.quantity = 0,required this.name,required this.price,required this.image_string});
+
+
 }
