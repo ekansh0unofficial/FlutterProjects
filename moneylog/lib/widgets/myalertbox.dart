@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
 class MyAlertBox extends StatefulWidget {
    MyAlertBox(
     {super.key , 
@@ -41,7 +40,13 @@ class _MyAlertBoxState extends State<MyAlertBox> {
           children: [
             TextFormField(
               controller: widget.descriptionController,
-              decoration: InputDecoration(labelText: 'Description'),
+              decoration: InputDecoration(
+                labelText: 'Description',
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8) , 
+                  borderSide: BorderSide(color: Colors.green ),),
+                labelStyle: TextStyle(fontWeight: FontWeight.w600)   
+                ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter a description';
@@ -51,7 +56,7 @@ class _MyAlertBoxState extends State<MyAlertBox> {
             ),
             SizedBox(height: 10),
             DropdownButtonFormField<String>(
-              decoration: InputDecoration(labelText: 'Category'),
+              decoration: InputDecoration(labelText: 'Category',labelStyle: TextStyle(fontWeight: FontWeight.w600) ),
               value: widget.selectedCategory,
               items: _categories.map((category) {
                 return DropdownMenuItem(
@@ -75,7 +80,7 @@ class _MyAlertBoxState extends State<MyAlertBox> {
             SizedBox(height: 10),
             TextFormField(
               controller: widget.amountController,
-              decoration: InputDecoration(labelText: 'Amount'),
+              decoration: InputDecoration(labelText: 'Amount',labelStyle: TextStyle(fontWeight: FontWeight.w600) ),
               keyboardType: TextInputType.number,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -92,20 +97,20 @@ class _MyAlertBoxState extends State<MyAlertBox> {
         ),
       ),
       actions: [
-        TextButton(
+        ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text('Cancel' , style : TextStyle(color: Color.fromARGB(255, 26, 67, 28))),
+        ),
+        ElevatedButton(
           onPressed: () {
             if (_formKey.currentState!.validate()) {
               widget.onSave!();          
               Navigator.of(context).pop();
             }
           },
-          child: Text('Submit'),
-        ),
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: Text('Cancel'),
+          child: Text('Submit' , style: TextStyle(color : const Color.fromARGB(255, 105, 240, 110))),
         ),
       ],
     );

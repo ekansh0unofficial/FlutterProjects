@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:moneylog/database/log_model.dart';
-import 'package:moneylog/logpage.dart';
+import 'package:moneylog/homepage.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -12,17 +12,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => LogSheet(),
-      builder: (context , child) {
-        return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Logpage(),
-        );
-      }, 
+    create: (context) => LogBook(),
+    builder: (context, child) => MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Homepage()
+      ),
     );
   }
 }
