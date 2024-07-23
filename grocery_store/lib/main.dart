@@ -8,7 +8,7 @@ void main() async {
   runApp(ChangeNotifierProvider(
     create: (_) => ThemeNotifier(),
     builder: (context, child) {
-      return MyApp();
+      return const MyApp();
     },
   ));
 }

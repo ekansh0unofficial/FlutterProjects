@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeNotifier>(
         builder: (context, value, child) => MaterialApp(
               theme: value.currentTheme,
+              debugShowCheckedModeBanner: false,
               home: Home(),
             ));
   }
