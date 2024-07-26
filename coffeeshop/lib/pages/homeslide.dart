@@ -22,7 +22,7 @@ class _HomeSlideState extends State<HomeSlide> {
   });
   }
 
-  List<Widget> _slide =[
+  final List<Widget> _slide =[
     Shop(),
     Cart()
 

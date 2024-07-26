@@ -149,7 +149,7 @@ class _InputPageState extends State<InputPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 250,
                       child: TextFormField(
                         controller: _fromDateController,
@@ -169,7 +169,7 @@ class _InputPageState extends State<InputPage> {
                       ),
                     ),
                     SizedBox(height: 20 ),
-                    Container(
+                    SizedBox(
                       width: 250,
                       child: TextFormField(
                         controller: _toDateController,

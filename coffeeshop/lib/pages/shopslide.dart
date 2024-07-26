@@ -4,7 +4,6 @@ import 'package:coffeeshop/pages/models/coffee_model.dart';
 import 'package:coffeeshop/pages/models/coffee_shop.dart';
 import 'package:coffeeshop/widgets/shop_item_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 class Shop extends StatefulWidget {

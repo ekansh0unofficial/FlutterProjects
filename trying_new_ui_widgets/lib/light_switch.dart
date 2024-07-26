@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LightSwitch extends StatefulWidget {
+  const LightSwitch({super.key});
+
 
   @override
   State<LightSwitch> createState() => _LightSwitchState();
