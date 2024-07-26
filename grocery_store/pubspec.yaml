@@ -10,6 +10,7 @@ environment:
 
 dependencies:
   flutter:
+
     sdk: flutter
   flutter_localizations:
     sdk: flutter
@@ -32,4 +33,4 @@ flutter:
 
   assets:
     # Add assets from the images directory to the application.
-    - assets/images/
+    - lib/assets/products.json
