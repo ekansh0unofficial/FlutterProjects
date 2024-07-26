@@ -19,7 +19,7 @@ class CartItem extends StatelessWidget {
         child: ListTile(
           leading: Image.asset(item.image_string, height: 70 ,),
           title: Text(item.name),
-          subtitle: Text(item.price + " - ${item.quantity}"),
+          subtitle: Text("${item.price} - ${item.quantity}"),
           
           trailing: IconButton(icon: Icon(Icons.delete), onPressed: onPressed,),
         ),

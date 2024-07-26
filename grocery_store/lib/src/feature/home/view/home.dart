@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grocery_store/src/feature/favourite/view/fav.dart';
 import 'package:grocery_store/src/feature/home/bloc/home_bloc.dart';
+
+import '../../cart/view/cart.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,18 +13,31 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var bloc = HomeBloc();
+  late final bloc;
+
+  @override
+  void initState() {
+    bloc = HomeBloc();
+    super.initState();
+    bloc.add(FetchHome());
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
       bloc: bloc,
-      // listenWhen: (previous, current) {
-      //   return true;
-      // },
-      // buildWhen: (previous, current) {
-      //   return true;
-      // },
-      listener: (context, state) {},
+      listenWhen: (previous, current) => current is HomeActionState,
+      buildWhen: (previous, current) => current is! HomeActionState,
+      listener: (context, state) {
+        if (state is HomeToCartState) {
+          print('moving to cart');
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const Cart()));
+        } else if (state is HomeToFavState) {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const Favourite()));
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -50,6 +65,26 @@ class _HomeState extends State<Home> {
               )
             ],
           ),
+          body: Builder(builder: (context) {
+            switch (state.runtimeType) {
+              case HomeLoading:
+                return const Center(child: CircularProgressIndicator());
+              case HomeLoadSuccess:
+                final sucessState = state as HomeLoadSuccess;
+                return Center(
+                    child: ListView.builder(
+                  itemCount: sucessState.products.length,
+                  itemBuilder: (context, index) {
+                    return Text('${sucessState.products[index].name} ',
+                        style: TextStyle(color: Colors.black));
+                  },
+                ));
+              case HomeError:
+                return const Center(child: Text('Failed to load home data'));
+              default:
+                return const Center(child: Text('Unknown state'));
+            }
+          }),
         );
       },
     );

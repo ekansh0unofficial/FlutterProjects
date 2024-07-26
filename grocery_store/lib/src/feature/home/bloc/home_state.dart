@@ -7,12 +7,15 @@ final class HomeInitial extends HomeState {}
 
 class HomeLoading extends HomeState {}
 
-class HomeSuccess extends HomeState {}
+class HomeLoadSuccess extends HomeState {
+  final List<Product> products;
+  HomeLoadSuccess({required this.products});
+}
 
 class HomeError extends HomeState {}
 
 class HomeActionState extends HomeState {}
 
-class HomeToFavState extends HomeState {}
+class HomeToFavState extends HomeActionState {}
 
-class HomeToCartState extends HomeState {}
+class HomeToCartState extends HomeActionState {}

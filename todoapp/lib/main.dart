@@ -12,12 +12,12 @@ import 'package:todoapp/themes/mytheme.dart';
 
   await Hive.initFlutter();
   Hive.registerAdapter(TodoAdapter());
-  var _mytodobox = await  Hive.openBox('mytodobox');
+  var mytodobox = await  Hive.openBox('mytodobox');
   runApp( MainApp());
 }
 
 class MainApp extends StatelessWidget {
-   MainApp({super.key});
+   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {

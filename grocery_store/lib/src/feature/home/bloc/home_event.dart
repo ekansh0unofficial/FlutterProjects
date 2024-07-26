@@ -10,3 +10,5 @@ class OnClickCart extends HomeEvent {}
 class OnNavigateCart extends HomeEvent {}
 
 class OnNavigateFav extends HomeEvent {}
+
+class FetchHome extends HomeEvent {}
