@@ -13,7 +13,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
     on<FetchHome>((event, emit) async {
       emit(HomeLoading());
-      print('current state , $state ,${DateTime.timestamp()}');
       await Future.delayed(Duration(seconds: 3));
       final jsonString =
           await rootBundle.loadString('lib/assets/products.json');
