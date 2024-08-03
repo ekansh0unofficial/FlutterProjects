@@ -15,13 +15,13 @@
       {
         "name": "Carrot",
         "price": 120,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Baby_carrot_in_plastic_packaging.jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Vegetable-Carrot-Bundle-wStalks.jpg/1280px-Vegetable-Carrot-Bundle-wStalks.jpg",
         "description": "A crunchy and sweet carrot."
       },
       {
         "name": "Milk",
         "price": 80,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Glass_of_milk_with_bottle.jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/800px-Glass_of_Milk_%2833657535532%29.jpg",
         "description": "A gallon of fresh milk."
       },
       {

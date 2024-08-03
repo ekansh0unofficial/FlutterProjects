@@ -1,7 +1,3 @@
-import 'dart:async';
-import 'dart:convert';
-import 'package:flutter/services.dart';
-
 class Product {
   String name;
   String description;

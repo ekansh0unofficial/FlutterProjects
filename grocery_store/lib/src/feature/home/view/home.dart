@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grocery_store/src/feature/favourite/view/fav.dart';
 import 'package:grocery_store/src/feature/home/bloc/home_bloc.dart';
+import 'package:grocery_store/src/feature/home/view/hometile.dart';
 
 import '../../cart/view/cart.dart';
 
@@ -67,18 +68,18 @@ class _HomeState extends State<Home> {
           ),
           body: Builder(builder: (context) {
             switch (state.runtimeType) {
-              case HomeLoading:
+              case const (HomeLoading):
                 return const Center(child: CircularProgressIndicator());
-              case HomeLoadSuccess:
+              case const (HomeLoadSuccess):
                 final sucessState = state as HomeLoadSuccess;
-                return Center(
-                    child: ListView.builder(
-                  itemCount: sucessState.products.length,
-                  itemBuilder: (context, index) {
-                    return Text('${sucessState.products[index].name} ',
-                        style: TextStyle(color: Colors.black));
-                  },
-                ));
+                return GridView.builder(
+                    itemCount: sucessState.products.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2),
+                    itemBuilder: (context, index) {
+                      return ProductTile(product: sucessState.products[index]);
+                    });
               case HomeError:
                 return const Center(child: Text('Failed to load home data'));
               default:
@@ -90,3 +91,12 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
+// ListView.builder(
+//                   itemCount: sucessState.products.length,
+//                   itemBuilder: (context, index) {
+//                     return Text('${sucessState.products[index].name} ',
+//                         style: TextStyle(color: Colors.black));
+//                   },
+//                 )
