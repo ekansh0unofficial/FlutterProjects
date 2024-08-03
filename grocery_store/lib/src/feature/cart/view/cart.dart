@@ -41,7 +41,7 @@ class _CartState extends State<Cart> {
           appBar: AppBar(
             title: const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text("Grocery Shop"),
+              child: Text("Grocery Shop Cart"),
             ),
             actions: [
               Padding(

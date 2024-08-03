@@ -6,8 +6,14 @@ part 'fav_state.dart';
 
 class FavBloc extends Bloc<FavEvent, FavState> {
   FavBloc() : super(FavInitial()) {
-    on<FavEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<FavEvent>((event, emit) {});
+
+    on<OnNavigatingFavTOCart>(
+      (event, emit) => emit(FavToCartNavigatingState()),
+    );
+
+    on<OnNavigatingFavTOHome>(
+      (event, emit) => emit(FavToHomeNavigatingState()),
+    );
   }
 }
