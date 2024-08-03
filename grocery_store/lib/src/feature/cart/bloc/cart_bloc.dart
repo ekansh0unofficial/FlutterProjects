@@ -6,8 +6,11 @@ part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartInitial()) {
-    on<CartEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<CartEvent>((event, emit) {});
+
+    on<OnNavCartTOFav>((event, emit) => emit(CartToFavoritesNavigationState()));
+    on<OnNavCartTOHome>(
+      (event, emit) => emit(CartToHomeNavigationState()),
+    );
   }
 }

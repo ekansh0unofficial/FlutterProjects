@@ -53,12 +53,12 @@ class _HomeState extends State<Home> {
                   children: [
                     IconButton(
                         onPressed: () {
-                          bloc.add(OnNavigateFav());
+                          bloc.add(OnNavigateHomeTOFav());
                         },
                         icon: const Icon(Icons.favorite, size: 32)),
                     IconButton(
                         onPressed: () {
-                          bloc.add(OnNavigateCart());
+                          bloc.add(OnNavigateHomeTOCart());
                         },
                         icon: const Icon(Icons.shopping_bag, size: 32)),
                   ],
