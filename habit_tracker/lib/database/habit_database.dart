@@ -75,6 +75,7 @@ class HabitDatabase extends ChangeNotifier {
         }
         await isar.habits.put(habit);
       });
+      readHabits();
     }
   }
 
@@ -88,6 +89,7 @@ class HabitDatabase extends ChangeNotifier {
         isar.habits.put(habit);
       });
     }
+    readHabits();
   }
 
   //deleting a habit

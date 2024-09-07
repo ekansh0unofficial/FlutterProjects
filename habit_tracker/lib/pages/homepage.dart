@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/components/habit_tile.dart';
 import 'package:habit_tracker/components/mydrawer.dart';
 import 'package:habit_tracker/database/habit_database.dart';
 import 'package:habit_tracker/models/habit.dart';
@@ -48,7 +49,13 @@ class _HomepageState extends State<Homepage> {
 
           bool isCompletedToday = isHabitCompletedToday(habit.completedDays);
 
-          return ListTile(title: Text(habit.name));
+          return HabitTile(
+            isCompleted: isCompletedToday,
+            name: habit.name,
+            onChanged: (value) => checkHabitOnOff(context, value, habit),
+            onedit: (context) => editHabit(context, habit, habitcontroller),
+            ondelete: (context) => deleteHabit(context, habit),
+          );
         });
   }
 }
