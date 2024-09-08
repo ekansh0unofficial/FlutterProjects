@@ -9,6 +9,8 @@ void main() async {
 
   await HabitDatabase.initialisedatabase();
   await HabitDatabase().saveFirstLaunchDate();
+
+  print(HabitDatabase().getFirstLaunchDate());
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => ThemeProvider()),
     ChangeNotifierProvider(create: (context) => HabitDatabase())
