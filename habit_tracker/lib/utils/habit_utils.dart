@@ -15,6 +15,7 @@ void createNewHabit(BuildContext context, controller) {
           actions: [
             TextButton(
                 onPressed: () {
+                  controller.clear();
                   Navigator.pop(context);
                 },
                 child: Text("Cancel")),
@@ -22,6 +23,7 @@ void createNewHabit(BuildContext context, controller) {
                 onPressed: () {
                   String newHabitName = controller.text;
                   context.read<HabitDatabase>().addHabit(newHabitName);
+                  controller.clear();
                   Navigator.pop(context);
                 },
                 child: Text("Save")),
@@ -58,6 +60,7 @@ void editHabit(BuildContext context, Habit habit, textController) {
       actions: [
         TextButton(
             onPressed: () {
+              textController.clear();
               Navigator.pop(context);
             },
             child: Text("Cancel")),
@@ -67,6 +70,7 @@ void editHabit(BuildContext context, Habit habit, textController) {
               context
                   .read<HabitDatabase>()
                   .updateHabitName(habit.id, newHabitName);
+              textController.clear();
               Navigator.pop(context);
             },
             child: Text("Save")),

@@ -3,12 +3,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HabitTile extends StatelessWidget {
-  bool isCompleted;
-  String name;
-  void Function(bool?)? onChanged;
-  void Function(BuildContext)? ondelete;
-  void Function(BuildContext)? onedit;
-  HabitTile({
+  final bool isCompleted;
+  final String name;
+  final void Function(bool?)? onChanged;
+  final void Function(BuildContext)? ondelete;
+  final void Function(BuildContext)? onedit;
+  const HabitTile({
     super.key,
     required this.isCompleted,
     required this.name,
@@ -30,17 +30,17 @@ class HabitTile extends StatelessWidget {
       child: Slidable(
         endActionPane: ActionPane(
           extentRatio: 1 / 3,
-          motion: StretchMotion(),
+          motion: const StretchMotion(),
           children: [
             SlidableAction(
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               onPressed: onedit,
               backgroundColor: Colors.grey.shade800,
               icon: Icons.settings,
               borderRadius: BorderRadius.circular(8),
             ),
             SlidableAction(
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               onPressed: ondelete,
               backgroundColor: Colors.grey.shade800,
               icon: Icons.delete,

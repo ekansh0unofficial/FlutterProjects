@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:habit_tracker/components/habit_tile.dart';
+import 'package:habit_tracker/components/heat_map.dart';
 import 'package:habit_tracker/components/mydrawer.dart';
 import 'package:habit_tracker/database/habit_database.dart';
 import 'package:habit_tracker/models/habit.dart';
 import 'package:habit_tracker/utils/habit_utils.dart';
+import 'package:habit_tracker/utils/heatmap_util.dart';
 import 'package:provider/provider.dart';
 
 class Homepage extends StatefulWidget {
@@ -33,8 +37,38 @@ class _HomepageState extends State<Homepage> {
         child: const Icon(Icons.add),
         onPressed: () => createNewHabit(context, habitcontroller),
       ),
-      body: _buildHabitList(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _buildHeatMap(),
+            _buildHabitList(),
+          ],
+        ),
+      ),
     );
+  }
+
+  Widget _buildHeatMap() {
+    final habitDatabase = context.watch<HabitDatabase>();
+    List<Habit> currentHabits = habitDatabase.currentHabits;
+
+    return FutureBuilder<DateTime?>(
+        future: habitDatabase.getFirstLaunchDate(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            print('updating my heat map');
+            print(
+                'Heatmap start date: ${snapshot.data}, end date: ${DateTime.now()}');
+
+            return MyHeatMap(
+              startDate: snapshot.data!,
+              datasets: prepareMapDataSet(currentHabits),
+              today: DateTime.now(),
+            );
+          } else {
+            return Container();
+          }
+        });
   }
 
   Widget _buildHabitList() {
@@ -44,6 +78,8 @@ class _HomepageState extends State<Homepage> {
 
     return ListView.builder(
         itemCount: currentHabits.length,
+        shrinkWrap: true,
+        // physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           final habit = currentHabits[index];
 

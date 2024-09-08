@@ -28,6 +28,9 @@ class HabitDatabase extends ChangeNotifier {
   //getter
   Future<DateTime?> getFirstLaunchDate() async {
     final settings = await isar.appSettings.where().findFirst();
+    if (settings != null) {
+      print('first date fetched');
+    }
     return settings?.firstLaunchDate;
   }
 
@@ -48,6 +51,7 @@ class HabitDatabase extends ChangeNotifier {
     List<Habit> fetchedHabits = await isar.habits.where().findAll();
     currentHabits.clear();
     currentHabits.addAll(fetchedHabits);
+    print('read called');
 
     notifyListeners();
   }
