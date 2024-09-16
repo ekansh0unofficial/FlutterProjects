@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:habit_tracker/components/habit_tile.dart';
 import 'package:habit_tracker/components/heat_map.dart';
 import 'package:habit_tracker/components/mydrawer.dart';
@@ -56,10 +54,6 @@ class _HomepageState extends State<Homepage> {
         future: habitDatabase.getFirstLaunchDate(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            print('updating my heat map');
-            print(
-                'Heatmap start date: ${snapshot.data}, end date: ${DateTime.now()}');
-
             return MyHeatMap(
               startDate: snapshot.data!,
               datasets: prepareMapDataSet(currentHabits),

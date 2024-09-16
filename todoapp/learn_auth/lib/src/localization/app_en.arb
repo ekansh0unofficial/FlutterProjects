@@ -1,0 +1,6 @@
+{
+  "appTitle": "learn_auth",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
