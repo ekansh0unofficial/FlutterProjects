@@ -6,7 +6,7 @@ class MyHeatMap extends StatelessWidget {
   final Map<DateTime, int>? datasets;
   final DateTime today;
 
-  MyHeatMap(
+  const MyHeatMap(
       {super.key,
       required this.startDate,
       required this.datasets,
@@ -35,7 +35,6 @@ class MyHeatMap extends StatelessWidget {
               6: Color.fromARGB(255, 40, 119, 43)
             },
           )
-        : Text("No Dataset passed");
-    ;
+        : const Text("No Dataset passed");
   }
 }
