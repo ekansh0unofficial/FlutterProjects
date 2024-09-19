@@ -10,7 +10,7 @@ void main() async {
   print('flutter binding initialised');
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await FirebaseAuth.instance.setPersistence(Persistence.LOCAL);
+
   print('firebase initiated');
 
   runApp(const MainApp());
