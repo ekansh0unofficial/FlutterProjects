@@ -1,4 +1,3 @@
-import 'package:chat_app/src/auth_pages/services/auth_service.dart';
 import 'package:chat_app/src/components/myalertbox.dart';
 import 'package:chat_app/src/components/mydrawer.dart';
 import 'package:chat_app/src/components/mytextfield.dart';
