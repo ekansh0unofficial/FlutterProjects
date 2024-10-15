@@ -12,9 +12,9 @@ class Registerpage extends StatelessWidget {
 
   void Function()? loginSwitch;
 
-  TextEditingController _emailcontroller = TextEditingController();
-  TextEditingController _passwordcontroller = TextEditingController();
-  TextEditingController _confirmcontroller = TextEditingController();
+  final TextEditingController _emailcontroller = TextEditingController();
+  final TextEditingController _passwordcontroller = TextEditingController();
+  final TextEditingController _confirmcontroller = TextEditingController();
 
   final Authservice _authService = Authservice();
 
@@ -36,7 +36,7 @@ class Registerpage extends StatelessWidget {
     } else {
       showDialog(
           context: context,
-          builder: (context) => MyAlertbox(
+          builder: (context) => const MyAlertbox(
                 message: "The passowords does not match",
               ));
     }
@@ -123,11 +123,11 @@ class Registerpage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("not registered yet ? "),
+                const Text("already a member ? "),
                 GestureDetector(
                   onTap: loginSwitch,
                   child: const Text(
-                    "register now!",
+                    "login now!",
                     style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w600,
