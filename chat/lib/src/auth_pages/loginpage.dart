@@ -13,8 +13,8 @@ class Loginpage extends StatelessWidget {
 
   void Function()? loginSwitch;
 
-  TextEditingController _emailcontroller = TextEditingController();
-  TextEditingController _passwordcontroller = TextEditingController();
+  final TextEditingController _emailcontroller = TextEditingController();
+  final TextEditingController _passwordcontroller = TextEditingController();
 
   final Authservice _authService = Authservice();
 

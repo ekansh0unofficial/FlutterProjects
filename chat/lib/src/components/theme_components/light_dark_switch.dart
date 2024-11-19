@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import '../../theme/themeprovider.dart';
 
 class DayNightSwitch extends StatelessWidget {
+  const DayNightSwitch({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Accessing the current theme mode from the ThemeProvider
