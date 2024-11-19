@@ -5,8 +5,8 @@ import '../model/message.dart';
 
 class Chatservice {
   //init firestore
-  FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  Authservice _authservice = Authservice();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final Authservice _authservice = Authservice();
 
   //fetch the current active user list
   Stream<List<Map<String, dynamic>>> getUsersStream() {

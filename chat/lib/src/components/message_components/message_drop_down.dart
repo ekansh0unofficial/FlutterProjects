@@ -9,7 +9,7 @@ class MessageOptionsButton extends StatelessWidget {
   final Message message;
 
   MessageOptionsButton({super.key, required this.message});
-  Chatservice _chat = Chatservice();
+  final Chatservice _chat = Chatservice();
 
   @override
   Widget build(BuildContext context) {
