@@ -14,4 +14,17 @@ class Apptheme {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ))));
+
+  final darkTheme = ThemeData(
+      brightness: Brightness.dark,
+      scaffoldBackgroundColor: AppColors.darkBackground,
+      primaryColor: AppColors.primaryColor,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.primaryColor,
+              textStyle:
+                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ))));
 }
