@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:s_potify/commons/app_colors.dart';
 
 class Apptheme {
-  final lightTheme = ThemeData(
+  static ThemeData lightTheme = ThemeData(
       brightness: Brightness.light,
       primaryColor: AppColors.primaryColor,
       scaffoldBackgroundColor: AppColors.lightBackground,
@@ -15,15 +15,17 @@ class Apptheme {
                 borderRadius: BorderRadius.circular(30),
               ))));
 
-  final darkTheme = ThemeData(
+  static ThemeData darkTheme = ThemeData(
       brightness: Brightness.dark,
       scaffoldBackgroundColor: AppColors.darkBackground,
       primaryColor: AppColors.primaryColor,
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primaryColor,
-              textStyle:
-                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              textStyle: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ))));

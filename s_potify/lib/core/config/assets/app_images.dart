@@ -1,3 +1,5 @@
 class AppImages {
-  final String path = "assets/images";
+  static String path = "assets/images/";
+
+  static String getStartedBG = "${path}getStartedbg.png";
 }

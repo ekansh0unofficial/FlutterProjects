@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:s_potify/core/config/theme/apptheme.dart';
+import 'package:s_potify/presentation/splash/splashpage.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({
@@ -21,8 +23,7 @@ class MyApp extends StatelessWidget {
         ],
         onGenerateTitle: (BuildContext context) =>
             AppLocalizations.of(context)!.appTitle,
-        theme: ThemeData(),
-        darkTheme: ThemeData.dark(),
-        home: Container());
+        theme: Apptheme.lightTheme,
+        home: const Splashpage());
   }
 }
