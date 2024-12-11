@@ -14,6 +14,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_svg:
+      
 
 dev_dependencies:
   flutter_test:
@@ -32,4 +34,9 @@ flutter:
     - assets/images/
     - assets/vectors/
     - assets/fonts/
-
+  
+  fonts:
+    - family: Satoshi
+      fonts:
+        - asset: assets/fonts/Satoshi-Variable.ttf 
+        - asset: assets/fonts/Satoshi-VariableItalic.ttf 
