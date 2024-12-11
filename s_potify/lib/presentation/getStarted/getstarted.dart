@@ -50,7 +50,8 @@ class Getstarted extends StatelessWidget {
               ],
             ),
           ),
-        )
+        ),
+        Container(color: Colors.black.withOpacity(0.2))
       ],
     ));
   }

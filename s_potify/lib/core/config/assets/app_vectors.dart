@@ -3,4 +3,6 @@ class AppVectors {
   static final String format = ".svg";
 
   static String logo = "${path}spotify_logo$format";
+  static String moon = "${path}Moon${format}";
+  static String sun = "${path}sun${format}";
 }
