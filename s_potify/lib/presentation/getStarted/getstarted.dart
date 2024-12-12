@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:s_potify/core/config/assets/app_images.dart';
 import 'package:s_potify/core/config/assets/app_vectors.dart';
+import 'package:s_potify/presentation/modePage/app_mode.dart';
 
 import '../../commons/app_colors.dart';
 import '../../commons/widget/s_button.dart';
@@ -43,7 +44,14 @@ class Getstarted extends StatelessWidget {
                 const SizedBox(
                   height: 21,
                 ),
-                SButton(onPressed: () {}, title: "Get Started"),
+                SButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => AppMode()));
+                    },
+                    title: "Get Started"),
                 const SizedBox(
                   height: 20,
                 )
@@ -51,7 +59,6 @@ class Getstarted extends StatelessWidget {
             ),
           ),
         ),
-        Container(color: Colors.black.withOpacity(0.2))
       ],
     ));
   }
